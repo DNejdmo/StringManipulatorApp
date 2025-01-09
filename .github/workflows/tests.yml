@@ -1,36 +1,59 @@
-﻿name: Run Unit Test in Push
-on: 
-    push:
-        branches:
-            - main
-    pull_request:
+﻿# name: Run Unit Test in Push
+# on: 
+#     push:
+#         branches:
+#             - main
+#     pull_request:
+
+# jobs:
+#     build:
+#         runs-on: ubuntu-latest
+
+#         steps:
+#             - name: Checkout repository
+#               uses: actions/checkout@v3
+
+
+#             - name: Set up .NET
+#               uses: actions/setup-dotnet@v3
+#               with:
+#                 dotnet-version: "9.x"
+
+
+#             - name: Restore dependencies
+#               run: dotnet restore
+            
+              
+#             - name: Build project
+#               run: dotnet build --no-restore --configuration Release
+               
+#             - name: Set working directory
+#               run: cd $GITHUB_WORKSPACE
+
+#             - name: Run unit tests
+#               run: dotnet test StringManipulatorApp/StringManipulatorApp.csproj --no-build 
+
+name: Run Unit Test on Push
+on:
+   push:
+   pull_request:
 
 jobs:
     build:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
-
-
-            - name: Set up .NET
+            - uses: actions/checkout@v3
+  
+            - name: Set up .Net
               uses: actions/setup-dotnet@v3
               with:
-                dotnet-version: "9.x"
+                    dotnet-version: "9.x"
 
-
-            - name: Restore dependencies
+            - name: restore dependencies
               run: dotnet restore
-            
-              
-            - name: Build project
-              run: dotnet build --no-restore --configuration Release
-               
-            - name: Set working directory
-              run: cd $GITHUB_WORKSPACE
 
-            - name: Run unit tests
-              run: dotnet test StringManipulatorApp/StringManipulatorApp.csproj --no-build 
+            - name: Run unit test
+              run: dotnet test
 
            
