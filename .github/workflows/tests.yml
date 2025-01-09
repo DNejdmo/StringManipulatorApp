@@ -26,9 +26,11 @@ jobs:
               
             - name: Build project
               run: dotnet build --no-restore --configuration Release
+               
+            - name: List files in the repository
+              run: ls -R
 
             - name: Run unit tests
               run: dotnet test --no-build ./StringManipulatorApp/StringManipulatorApp.csproj
 
-            - name: List files in the repository
-              run: ls -R
+           
