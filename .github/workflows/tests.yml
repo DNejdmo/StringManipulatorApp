@@ -31,6 +31,6 @@ jobs:
               run: cd $GITHUB_WORKSPACE
 
             - name: Run unit tests
-              run: dotnet test --no-build StringManipulatorApp/StringManipulatorApp.csproj
+              run: dotnet test StringManipulatorApp/StringManipulatorApp.csproj --no-build 
 
            
