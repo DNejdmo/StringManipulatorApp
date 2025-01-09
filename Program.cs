@@ -1,4 +1,5 @@
-﻿namespace StringManipulatorApp
+﻿
+namespace StringManipulatorApp
 {
     class Program
     {
@@ -25,12 +26,15 @@
                         string inputToReverse = Console.ReadLine();
                         string reversed = manipulator.ReverseString(inputToReverse);
                         Console.WriteLine($"Resultat: {reversed}");
+                        Pause();
                         break;
 
                     case "2":
                         Console.Write("Ange en sträng där mellanslag ska tas bort: ");
                         string inputToRemoveSpace = Console.ReadLine();
                         string noSpace = manipulator.RemoveWhitespace(inputToRemoveSpace);
+                        Console.WriteLine($"Resultat: {noSpace}");
+                        Pause();
                         break;
 
                     case "3":
@@ -40,17 +44,26 @@
                         string str2 = Console.ReadLine();
                         string concatenated = manipulator.ConcatenateStrings(str1, str2);
                         Console.WriteLine($"Resultat: {concatenated}");
+                        Pause();
                         break;
+
                     case "4":
                         Console.WriteLine("Avslutar programmet. Hej då!");
                         return;
 
                     default:
                         Console.WriteLine("Felaktigt val. Försök igen.");
+                        Pause();
                         break;
                 }
             }
 
+        }
+
+        private static void Pause()
+        {
+            Console.WriteLine("Tryck på valfri tangent för att fortsätta...");
+            Console.ReadKey();
         }
     }
 }
